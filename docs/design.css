@@ -8,7 +8,7 @@ body {
 
 #overlay{
     background-color: white;
-    position: fixed;
+    position: absolute;
     height: 3cm;
     left: 4cm;
     right: 4cm;
