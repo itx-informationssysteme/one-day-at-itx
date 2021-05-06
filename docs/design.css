@@ -1,6 +1,10 @@
 body {
     background-color: beige;
 }
-header {
+#background {
     background-image: url("header-bild.png");
+}
+
+#overlay{
+    background-color: white;
 }
