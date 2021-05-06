@@ -7,4 +7,12 @@ body {
 
 #overlay{
     background-color: white;
+    position: top;
+}
+h1{
+    background-color: white;
+    height: 3cm;
+    opacity: 0.5;
+    font-family: Arial;
+    font-size: 1cm;
 }
