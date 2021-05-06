@@ -2,14 +2,16 @@ body {
     background-color: beige;
 }
 #background {
+    position: top;
     background-image: url("header-bild.png");
 }
 
 #overlay{
     background-color: white;
-    position: relative;
-    left: 2cm;
-    right: 2cm;
+    position: fixed;
+    height: 3cm;
+    left: 4cm;
+    right: 4cm;
     
 }
 h1{
@@ -33,4 +35,9 @@ footer{
     background-color: white;
     height: 400px;
     width: 100%;
+}
+
+#oeffnungszeiten{
+    position: fixed;
+    left: 8cm;
 }
