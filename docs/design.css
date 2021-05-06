@@ -16,3 +16,17 @@ h1{
     font-family: Arial;
     font-size: 1cm;
 }
+
+h2{
+    font-size: small;
+    position: left;
+}
+footer{
+    background-color: grey;
+    height: 2cm;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
