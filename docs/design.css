@@ -15,6 +15,7 @@ body {
     
 }
 h1{
+    vertical-align: middle;
     background-color: white;
     height: 3cm;
     opacity: 0.5;
