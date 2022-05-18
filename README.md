@@ -20,7 +20,7 @@
 
 ## Angular details
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11 including (Angular Material)[https://material.angular.io/]
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13 including (Angular Material)[https://material.angular.io/]
 
 ### Development server
 
