@@ -1,12 +1,12 @@
 FROM gitpod/workspace-full
 
-ARG NODEJS_VERSION_MAJOR=16
+#ARG NODEJS_VERSION_MAJOR=16
 
-USER root
+#USER root
 
-RUN a2dismod mpm_event
+#RUN a2dismod mpm_event
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y mysql-server php-xmlrpc php-pdo-mysql wget
+#RUN apt-get update && apt-get upgrade -y && apt-get install -y mysql-server php-xmlrpc php-pdo-mysql wget
 
 # Install Yarn
 #RUN mkdir -p /var/cache/yarn
