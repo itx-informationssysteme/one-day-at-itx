@@ -1,7 +1,6 @@
 FROM gitpod/workspace-full
 
 ARG NODEJS_VERSION_MAJOR=16
-ARG YARN_VERSION=1.22.19-1
 
 USER root
 
@@ -14,10 +13,7 @@ RUN mkdir -p /var/cache/yarn
 RUN apt install -y gnupg2
 RUN	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt install -y yarn=${YARN_VERSION}
-
-# Mark packages as hold, i.e. staying at given version
-RUN apt-mark hold yarn
+    apt-get update && apt install --no-install-recommends -y yarn
 
 # Install latest composer v1
 RUN wget -O composer-setup.php https://getcomposer.org/installer && \
