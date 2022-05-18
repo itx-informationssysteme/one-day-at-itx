@@ -37,7 +37,7 @@ vscode:
     - ms-vscode.vscode-typescript-tslint-plugin
     - dbaeumer.vscode-eslint
     - johnpapa.angular2
-    - yrilletuzi.angular-schematics
+    - cyrilletuzi.angular-schematics
     - angular.ng-template
     - ecmel.vscode-html-css
     - bmewburn.vscode-intelephense-client
