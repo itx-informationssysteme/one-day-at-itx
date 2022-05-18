@@ -10,10 +10,10 @@ RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el,s390x] https://mirror.mva-
 RUN apt-get update && apt-get install -y mariadb-server mariadb-client
 
 # Install Yarn
-RUN mkdir -p /var/cache/yarn
-RUN	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt install --no-install-recommends -y yarn
+# RUN mkdir -p /var/cache/yarn
+# RUN	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+#    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+#    apt-get update && apt install --no-install-recommends -y yarn
 
 # Install latest composer v1
 #RUN wget -O composer-setup.php https://getcomposer.org/installer && \
