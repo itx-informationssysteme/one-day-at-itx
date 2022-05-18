@@ -1,7 +1,7 @@
 FROM gitpod/workspace-full
 
-ARG NODEJS_VERSION_MAJOR=12
-ARG YARN_VERSION=1.22.5-1
+ARG NODEJS_VERSION_MAJOR=16
+ARG YARN_VERSION=1.22.19-1
 
 USER root
 
@@ -22,7 +22,7 @@ RUN apt-mark hold yarn
 # Install latest composer v1
 RUN wget -O composer-setup.php https://getcomposer.org/installer && \
 #	rm -f /usr/bin/composer && \
-	php composer-setup.php --install-dir=/usr/bin --filename=composer --version=1.10.22 && \
+	php composer-setup.php --install-dir=/usr/bin --filename=composer && \
 	chmod ugo+x /usr/bin/composer
 
 RUN echo "include \${GITPOD_REPO_ROOT}/gitpod_config/apache/apache.conf" > /etc/apache2/apache2.conf
