@@ -45,7 +45,10 @@ php vendor/bin/typo3cms install:setup \
     --use-existing-database \
     --admin-user-name=admin \
     --admin-password=password \
-    --site-setup-type=site
+    --site-setup-type=site \
+    --web-server-config=apache
+    
+php vendor/bin/typo3cms configuration:set SYS/trustedHostsPattern ".*"
 ```
 
 ## All available pods
