@@ -10,12 +10,12 @@ tasks:
   command: >
     cp .env.example .env;
     cp .htaccess.example .htaccess;
-    mariadb-install-db --auth-root-authentication-method=normal --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data --user=gitpod --skip-test-db --skip-auth-anonymous-user --force --verbose;
-    mysqld --log-error=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log --general-log-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/mysql.log --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data &
+    mariadb-install-db --defaults-extra-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/mysql.cnf --auth-root-authentication-method=normal --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data --user=gitpod --force --verbose;
+    mysqld_safe --defaults-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/mysql.cnf --log-error=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log --general-log-file=$GITPOD_REPO_ROOT/gitpod_config/mysql/logs/mysql.log --datadir=$GITPOD_REPO_ROOT/gitpod_config/mysql/data &
     sleep 5;
     mysql -u root -e "CREATE DATABASE testdb";
     apachectl start;
-    multitail /workspace/one-day-at-itx/gitpod_config/apache/logs/access.log -I /workspace/one-day-at-itx/gitpod_config/apache/logs/error.log -I /workspace/one-day-at-itx/gitpod_config/mysql/logs/error.log -I /workspace/one-day-at-itx/gitpod_config/mysql/logs/mysql.log
+    multitail $GITPOD_REPO_ROOT/gitpod_config/apache/logs/access.log -I $GITPOD_REPO_ROOT/gitpod_config/apache/logs/error.log -I $GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log -I $GITPOD_REPO_ROOT/gitpod_config/mysql/logs/mysql.log
 - name: Terminal
   command: >
     nvm install 16;
@@ -33,7 +33,7 @@ tasks:
   openMode: split-right
 vscode:
   extensions:
-    - cweijan.vscode-mysql-client2
+    - cweijan.vscode-database-client2
     - ms-vscode.vscode-typescript-tslint-plugin
     - dbaeumer.vscode-eslint
     - johnpapa.angular2
