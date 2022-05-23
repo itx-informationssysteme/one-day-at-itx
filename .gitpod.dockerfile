@@ -29,7 +29,9 @@ RUN echo ". \${GITPOD_REPO_ROOT}/gitpod_config/apache/envvars" > /etc/apache2/en
 
 RUN echo "!include \${GITPOD_REPO_ROOT}/gitpod_config/mysql/mysql.cnf" > /etc/mysql/my.cnf
 
-RUN mkdir -p /var/run/mysqld /var/log/mysql
-RUN chown gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
+# RUN mkdir -p /var/run/mysqld /var/log/mysql
+# RUN chown gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
+RUN mkdir /var/run/mysqld
+RUN chown gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/run/mysqld
 
 RUN addgroup gitpod www-data
