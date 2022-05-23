@@ -5,12 +5,12 @@ USER root
 RUN a2dismod mpm_event
 
 # Install MariaDB
-RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el,s390x] https://mirror.mva-n.net/mariadb/repo/10.7/ubuntu focal main'
-RUN apt-get update && apt-get install -y mariadb-server mariadb-client
+# RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+# RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el,s390x] https://mirror.mva-n.net/mariadb/repo/10.7/ubuntu focal main'
+# RUN apt-get update && apt-get install -y mariadb-server mariadb-client
 
 # Install other packages
-RUN apt-get update && apt-get upgrade -y && apt-get install -y software-properties-common gnupg2 dirmngr apt-transport-https php-xmlrpc php-mysql wget
+RUN apt-get update && apt-get upgrade -y && apt-get install -y software-properties-common gnupg2 dirmngr apt-transport-https mysql-server php-xmlrpc php-mysql wget
 
 # Install Yarn
 RUN mkdir -p /var/cache/yarn
