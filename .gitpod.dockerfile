@@ -4,11 +4,13 @@ USER root
 
 RUN a2dismod mpm_event
 
+# Install MariaDB
 RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
 RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el,s390x] https://mirror.mva-n.net/mariadb/repo/10.7/ubuntu focal main'
 RUN apt-get update && apt-get install -y mariadb-server mariadb-client
-RUN apt-get update && apt-get upgrade -y && apt-get install -y software-properties-common gnupg2 dirmngr apt-transport-https php-xmlrpc php-mysql wget
 
+# Install other packages
+RUN apt-get update && apt-get upgrade -y && apt-get install -y software-properties-common gnupg2 dirmngr apt-transport-https php-xmlrpc php-mysql wget
 
 # Install Yarn
 RUN mkdir -p /var/cache/yarn
@@ -27,7 +29,7 @@ RUN echo ". \${GITPOD_REPO_ROOT}/gitpod_config/apache/envvars" > /etc/apache2/en
 
 RUN echo "!include \${GITPOD_REPO_ROOT}/gitpod_config/mysql/mysql.cnf" > /etc/mysql/my.cnf
 
-RUN mkdir /var/run/mysqld
-RUN chown gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/run/mysqld
+RUN mkdir -p /var/run/mysqld /var/log/mysql
+RUN chown gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/run/mysqld /var/log/mysql /var/lib/mysql /var/lib/mysql-files /var/lib/mysql-keyring /var/lib/mysql-upgrade
 
 RUN addgroup gitpod www-data
