@@ -1,0 +1,17 @@
+{
+    "name": "gitpod/one-day-at-itx",
+    "autoload": {
+        "psr-4": {
+            "Gitpod\\OneDayAtItx\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gschafra",
+            "email": "gschafra@web.de"
+        }
+    ],
+    "require": {
+        "paragonie/anti-csrf": "^2.3"
+    }
+}
