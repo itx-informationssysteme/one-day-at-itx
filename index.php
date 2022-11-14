@@ -30,9 +30,24 @@
 		</p>
 	</div>
 	<div>
+		<form>
 		<?php
-			phpinfo();
+			require __DIR__ . '/vendor/autoload.php';
+
+			use ParagonIE\AntiCSRF\AntiCSRF;
+
+			if (session_status() === PHP_SESSION_NONE) {
+				session_start();
+			}
+
+			$csrf = new AntiCSRF();
+
+			var_dump($csrf);
+
+			// $csrf>insertToken('/index.php', true);
+			
 		?>
+		</form>
 	</div>
 </body>
 </html>

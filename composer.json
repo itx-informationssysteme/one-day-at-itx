@@ -1,10 +1,5 @@
 {
     "name": "gitpod/one-day-at-itx",
-    "autoload": {
-        "psr-4": {
-            "Gitpod\\OneDayAtItx\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "gschafra",
