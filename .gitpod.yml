@@ -16,6 +16,9 @@ tasks:
     mysql -u root -e "CREATE DATABASE testdb";
     apachectl start;
     multitail $GITPOD_REPO_ROOT/gitpod_config/apache/logs/access.log -I $GITPOD_REPO_ROOT/gitpod_config/apache/logs/error.log -I $GITPOD_REPO_ROOT/gitpod_config/mysql/logs/error.log
+- name: Composer install
+  command: >
+    composer install    
 - name: Terminal
   command: >
     nvm install 16;
