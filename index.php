@@ -30,16 +30,14 @@
 		</p>
 	</div>
 	<div>
-		<form action="/index.php" method="post">
+		<form action="/" method="post">
 			<input type="text" name="text"/>
 			<?php
 				require __DIR__ . '/vendor/autoload.php';
 
 				use ParagonIE\AntiCSRF\AntiCSRF;
 
-				if (session_status() === PHP_SESSION_NONE) {
-					session_start();
-				}
+				session_start();
 
 				$antiCsrf = new AntiCSRF();
 
