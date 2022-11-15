@@ -16,3 +16,4 @@ gitpod_config/mysql/logs/*.log
 gitpod_config/mysql/data/**/*
 .env
 .htaccess
+vendor
