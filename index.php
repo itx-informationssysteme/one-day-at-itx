@@ -30,24 +30,36 @@
 		</p>
 	</div>
 	<div>
-		<form>
-		<?php
-			require __DIR__ . '/vendor/autoload.php';
+		<form action="/index.php" method="post">
+			<input type="text" name="text"/>
+			<?php
+				require __DIR__ . '/vendor/autoload.php';
 
-			use ParagonIE\AntiCSRF\AntiCSRF;
+				use ParagonIE\AntiCSRF\AntiCSRF;
 
-			if (session_status() === PHP_SESSION_NONE) {
-				session_start();
-			}
+				if (session_status() === PHP_SESSION_NONE) {
+					session_start();
+				}
 
-			$csrf = new AntiCSRF();
+				$antiCsrf = new AntiCSRF();
 
-			var_dump($csrf);
-
-			// $csrf>insertToken('/index.php', true);
-			
-		?>
+				$antiCsrf->insertToken();				
+			?>
+			<input type="submit" value="Submit">
 		</form>
+		<div>
+			<?php
+				if (!empty($_POST)) {
+					if ($antiCsrf->validateRequest()) {
+						var_dump($_POST);
+					} else {
+						echo "CSRF not given!";
+					}
+				}
+			?>
+		</div>
 	</div>
 </body>
 </html>
+
+
