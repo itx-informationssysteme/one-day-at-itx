@@ -7,17 +7,23 @@ RUN a2dismod mpm_event
 # Install MariaDB
 RUN apt-get update && apt-get upgrade -y && apt-get install -y software-properties-common gnupg2 dirmngr apt-transport-https
 RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el,s390x] https://mirror.mva-n.net/mariadb/repo/10.7/ubuntu focal main'
+RUN add-apt-repository 'deb [arch=amd64,arm64,ppc64el,s390x] https://mirror.mva-n.net/mariadb/repo/10.11/ubuntu jammy main'
 RUN apt-get update && apt-get install -y mariadb-server mariadb-client
 
 # Install other packages
 RUN apt-get install -y php-xmlrpc php-mysql wget
 
 # Install Yarn
-RUN mkdir -p /var/cache/yarn
-RUN	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt install --no-install-recommends -y yarn
+# RUN mkdir -p /var/cache/yarn
+# RUN	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+#     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+#     apt-get update && apt install --no-install-recommends -y yarn
+
+# Install Bun
+RUN curl -fsSL https://bun.sh/install | bash 
+
+# Install volta
+RUN curl https://get.volta.sh | bash
 
 # Install latest composer v1
 RUN wget -O composer-setup.php https://getcomposer.org/installer && \
