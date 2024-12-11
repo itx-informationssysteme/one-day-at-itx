@@ -20,10 +20,10 @@ RUN apt-get install -y php-xmlrpc php-mysql wget
 #     apt-get update && apt install --no-install-recommends -y yarn
 
 # Install Bun
-RUN curl -fsSL https://bun.sh/install | bash 
+# RUN curl -fsSL https://bun.sh/install | bash 
 
 # Install volta
-RUN curl https://get.volta.sh | bash
+# RUN curl https://get.volta.sh | bash
 
 # Install latest composer v1
 RUN wget -O composer-setup.php https://getcomposer.org/installer && \
